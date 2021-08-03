@@ -1,10 +1,8 @@
 export class EchoService {
     constructor() {}
-    public async echoName(name: string) {
-        let greeting = `Hey there, ${name}! How are you?`;
-        console.log(greeting);
+    public greetName(name: string): object {
         return {
-            "hello": greeting
-        };
+            "hello": `Ohayou ${name}! Ogenki desu ka? Kyou mo gambarimasu!`
+        }
     }
 }
