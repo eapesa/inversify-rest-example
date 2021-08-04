@@ -2,28 +2,29 @@ import * as express from "express";
 import { 
     interfaces, 
     controller, 
-    httpGet, 
-    httpPost, 
-    httpDelete, 
-    request, 
-    queryParam, 
-    response, 
-    requestParam 
+    httpGet
 } from "inversify-express-utils";
 import { injectable, inject } from "inversify";
 
 import { ResponseService } from "../services/ResponseService";
+import { readFileSync } from "fs";
 
-@controller("/doc")
+@controller("/docs")
 export class ApidocController implements interfaces.Controller {
     constructor(
         @inject("ResponseService") private responseService : ResponseService
-    ) {}
+    ) {
+        console.log("Starting /docs endpoint...");
+    }
 
-    @httpGet("/")
+    @httpGet("/index")
     private showDoc(req: express.Request, res: express.Response, next: express.NextFunction) {
-        const path = require("path");
         console.log("Rendering an HTML file...");
-        res.sendFile(path.join(__dirname + "../docs/index.html"));
+        res.header("content-type", "text/html");
+
+        const path = require("path");
+        const htmldoc = readFileSync(path.join(__dirname, "../docs/index.html"), "utf-8");
+        
+        return htmldoc;
     }
 }

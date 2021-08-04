@@ -1,4 +1,5 @@
 import "reflect-metadata"
+
 import * as bodyParser from 'body-parser';
 import * as express from "express";
 import * as swagger from "swagger-express-ts";
@@ -33,7 +34,7 @@ server.setConfig((app) => {
         extended: true
     }));
     app.use(bodyParser.json());
-    // app.use(express.static(__dirname + "docs"));
+
     app.use("/api-docs/swagger" , express.static("swagger"));
     app.use("/api-docs/swagger/assets" , express.static("node_modules/swagger-ui-dist"));
     app.use(swagger.express({

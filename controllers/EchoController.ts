@@ -70,6 +70,8 @@ export class EchoController implements interfaces.Controller {
     @httpGet("/:name")
     private getName(req: express.Request, res: express.Response, next: express.NextFunction): object {
         let name = req.params.name;
+        res.header("content-type", "application/json");
+        
         if (!name) {
             return this.responseService.constructReply(400);
         }
