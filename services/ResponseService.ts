@@ -1,5 +1,9 @@
+import {
+    provide
+} from 'inversify-binding-decorators';
 import { reply } from "../models/reply";
 
+@provide(ResponseService)
 export class ResponseService {
     constructor() {}
     

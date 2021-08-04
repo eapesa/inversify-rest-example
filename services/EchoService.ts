@@ -1,3 +1,8 @@
+import {
+    provide
+} from 'inversify-binding-decorators';
+
+@provide(EchoService)
 export class EchoService {
     constructor() {}
     public greetName(name: string): object {

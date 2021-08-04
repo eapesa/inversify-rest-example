@@ -11,10 +11,13 @@
   "dependencies": {
     "express": "^4.17.1",
     "inversify": "^5.1.1",
+    "inversify-binding-decorators": "^4.0.0",
     "inversify-express-utils": "^6.3.2",
     "inversify-restify-utils": "^3.4.1",
     "reflect-metadata": "^0.1.13",
     "restify": "^8.5.1",
+    "swagger-express-ts": "^1.1.0",
+    "swagger-ui-dist": "^4.0.0-beta.2",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
